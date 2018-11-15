@@ -8,7 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-/*THIS IS A TEST*/
+// TEST 2 BOIIIIIIII
 
 namespace Group_30___CNIT_155_Group_Project
 {
