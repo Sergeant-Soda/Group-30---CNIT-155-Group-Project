@@ -8,8 +8,6 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-// TEST 2 BOIIIIIIII
-//Eddy was here
 
 namespace Group_30___CNIT_155_Group_Project
 {
@@ -40,12 +38,23 @@ namespace Group_30___CNIT_155_Group_Project
 
         private void btnClear_Click(object sender, EventArgs e)
         {
+            txtName.Text = "";
+            txtPPhone.Text = "";
+            txtWPhone.Text = "";
+            txtEMail.Text = "";
 
+            radFamily.Checked = false;
+            radFriend.Checked = false;
+            radWork.Checked = false;
+            radOther.Checked = false;
+            lstOutput.Items.Clear();
+
+            txtName.Focus();
         }
 
         private void btnExit_Click(object sender, EventArgs e)
         {
-
+            Close();
         }
     }
 }
