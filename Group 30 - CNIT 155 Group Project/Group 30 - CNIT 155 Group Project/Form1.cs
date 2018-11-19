@@ -9,7 +9,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Threading;
-
+using System.IO;
 
 namespace Group_30___CNIT_155_Group_Project
 {
@@ -375,6 +375,11 @@ namespace Group_30___CNIT_155_Group_Project
             //    DisplayMessage("No contacts currently exist locally");
             //    return;
             //}
+            if (!File.Exists("Address Book.txt"))
+            {
+                DisplayMessage("No local file exists yet. Please create one and add some entries.");
+                return;
+            }
 
             progressBar.Value = 0;
             lblProgess.Text = "Preparing for upload...";
@@ -462,6 +467,20 @@ namespace Group_30___CNIT_155_Group_Project
             startInfo.Arguments = "/C git push";
             gitAdd.StartInfo = startInfo;
             gitAdd.Start();
+        }
+
+        private void Form1_Load(object sender, EventArgs e)
+        {
+            if (File.Exists("C:\\Program Files\\Git\\git-cmd.exe") == false)
+            {
+                MessageBox.Show("This program uses the \"Git\"" +
+                    " plugin to save address books to GitHub. Please " +
+                    "install it from the link below. Until then, " +
+                    "certain functions will be limited. https://git-scm.com/download/win");
+
+                btnPush.Enabled = false;
+                btnFetch.Enabled = false;
+            }
         }
     }
 }
