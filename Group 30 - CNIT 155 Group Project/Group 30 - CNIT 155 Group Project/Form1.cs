@@ -377,13 +377,13 @@ namespace Group_30___CNIT_155_Group_Project
             //}
 
             lblProgess.Text = "Preparing for upload...";
-            Thread.Sleep(1000);
+            lblProgess.Refresh();
             gitAdd();
             lblProgess.Text = "Commiting changes...";
-            Thread.Sleep(100);
+            lblProgess.Refresh();
             gitCommit();
             lblProgess.Text = "Uploading to GitHub...";
-            Thread.Sleep(100);
+            lblProgess.Refresh();
             gitPush();
             lblProgess.Text = "Done!";
         }
