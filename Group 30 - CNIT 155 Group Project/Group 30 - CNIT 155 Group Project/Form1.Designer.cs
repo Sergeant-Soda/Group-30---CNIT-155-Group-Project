@@ -60,6 +60,7 @@
             this.btnPush = new System.Windows.Forms.Button();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
             this.progressBar = new System.Windows.Forms.ProgressBar();
+            this.lblProgess = new System.Windows.Forms.Label();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.groupBox3.SuspendLayout();
@@ -368,11 +369,21 @@
             this.progressBar.Size = new System.Drawing.Size(100, 23);
             this.progressBar.TabIndex = 28;
             // 
+            // lblProgess
+            // 
+            this.lblProgess.AutoSize = true;
+            this.lblProgess.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F);
+            this.lblProgess.Location = new System.Drawing.Point(279, 494);
+            this.lblProgess.Name = "lblProgess";
+            this.lblProgess.Size = new System.Drawing.Size(0, 18);
+            this.lblProgess.TabIndex = 28;
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(511, 527);
+            this.Controls.Add(this.lblProgess);
             this.Controls.Add(this.progressBar);
             this.Controls.Add(this.groupBox3);
             this.Controls.Add(this.groupBox2);
@@ -443,6 +454,7 @@
         private System.Windows.Forms.Button btnPush;
         private System.Windows.Forms.GroupBox groupBox3;
         private System.Windows.Forms.ProgressBar progressBar;
+        private System.Windows.Forms.Label lblProgess;
     }
 }
 

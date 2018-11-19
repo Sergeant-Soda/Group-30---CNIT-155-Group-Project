@@ -377,22 +377,33 @@ namespace Group_30___CNIT_155_Group_Project
 
         private void btnFetch_Click(object sender, EventArgs e)
         {
-            using (WebClient wc = new WebClient())
+            if (MessageBox.Show("Are you sure you wish to sync with the database? any local changes made will be lost", "WARNING", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.No)
             {
-                wc.DownloadProgressChanged += wc_DownloadProgressChanged;
-                wc.DownloadFileAsync(
-                    // Param1 = Link of file
-                    new System.Uri("https://raw.githubusercontent.com/Sergeant-Soda/Group-30---CNIT-155-Group-Project/master/Group%2030%20-%20CNIT%20155%20Group%20Project/Group%2030%20-%20CNIT%20155%20Group%20Project/bin/Debug/Address%20Book.txt"),
-                    // Param2 = Path to save
-                    "Address Book.txt"
-                );
+                return;
             }
-            
+            else
+            {
+                using (WebClient wc = new WebClient())
+                {
+                    wc.DownloadProgressChanged += wc_DownloadProgressChanged;
+                    wc.DownloadFileAsync(
+                        // Param1 = Link of file
+                        new System.Uri("https://raw.githubusercontent.com/Sergeant-Soda/Group-30---CNIT-155-Group-Project/master/Group%2030%20-%20CNIT%20155%20Group%20Project/Group%2030%20-%20CNIT%20155%20Group%20Project/bin/Debug/Address%20Book.txt"),
+                        // Param2 = Path to save
+                        "Address Book.txt"
+                    );
+
+                    lblProgess.Text = "Done!";
+                }
+            }
         }
 
         void wc_DownloadProgressChanged(object sender, DownloadProgressChangedEventArgs e)
         {
+            double percent = (progressBar.Value / progressBar.Maximum) * 100;
+
             progressBar.Value = e.ProgressPercentage;
+            lblProgess.Text = "Fetching... " + Math.Round(percent, 2) + "%";
         }
     }
 }
