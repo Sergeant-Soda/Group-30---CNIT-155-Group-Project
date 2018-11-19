@@ -8,6 +8,7 @@ using System.Net;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Threading;
 
 
 namespace Group_30___CNIT_155_Group_Project
@@ -373,6 +374,14 @@ namespace Group_30___CNIT_155_Group_Project
             {
                 DisplayMessage("No contacts currently exist locally");
             }
+
+            lblProgess.Text = "Preparing for upload...";
+            gitAdd();
+            lblProgess.Text = "Commiting changes...";
+            gitCommit();
+            lblProgess.Text = "Uploading to GitHub...";
+            gitPush();
+            lblProgess.Text = "Done!";
         }
 
         private void btnFetch_Click(object sender, EventArgs e)
@@ -407,6 +416,41 @@ namespace Group_30___CNIT_155_Group_Project
                 lblProgess.Location = new Point(346, 494);
                 lblProgess.Text = "Done!";
             }
+        }
+
+        private void gitAdd()
+        {
+            System.Diagnostics.Process gitAdd = new System.Diagnostics.Process();
+            System.Diagnostics.ProcessStartInfo startInfo = new System.Diagnostics.ProcessStartInfo();
+            startInfo.WindowStyle = System.Diagnostics.ProcessWindowStyle.Hidden;
+            startInfo.FileName = "cmd.exe";
+            startInfo.Arguments = "/C git add \"Address Book.txt\"";
+            gitAdd.StartInfo = startInfo;
+            gitAdd.Start();
+            Thread.Sleep(500);
+        }
+
+        private void gitCommit()
+        {
+            System.Diagnostics.Process gitAdd = new System.Diagnostics.Process();
+            System.Diagnostics.ProcessStartInfo startInfo = new System.Diagnostics.ProcessStartInfo();
+            startInfo.WindowStyle = System.Diagnostics.ProcessWindowStyle.Hidden;
+            startInfo.FileName = "cmd.exe";
+            startInfo.Arguments = "/C git commit -a -m \"Auto Update: Address Book.txt\"";
+            gitAdd.StartInfo = startInfo;
+            gitAdd.Start();
+            Thread.Sleep(500);
+        }
+
+        private void gitPush()
+        {
+            System.Diagnostics.Process gitAdd = new System.Diagnostics.Process();
+            System.Diagnostics.ProcessStartInfo startInfo = new System.Diagnostics.ProcessStartInfo();
+            startInfo.WindowStyle = System.Diagnostics.ProcessWindowStyle.Hidden;
+            startInfo.FileName = "cmd.exe";
+            startInfo.Arguments = "/C git push";
+            gitAdd.StartInfo = startInfo;
+            gitAdd.Start();
         }
     }
 }
