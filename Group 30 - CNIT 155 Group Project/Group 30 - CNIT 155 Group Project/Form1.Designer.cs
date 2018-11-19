@@ -56,8 +56,13 @@
             this.radFName = new System.Windows.Forms.RadioButton();
             this.radLName = new System.Windows.Forms.RadioButton();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.btnFetch = new System.Windows.Forms.Button();
+            this.btnPush = new System.Windows.Forms.Button();
+            this.groupBox3 = new System.Windows.Forms.GroupBox();
+            this.progressBar = new System.Windows.Forms.ProgressBar();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
+            this.groupBox3.SuspendLayout();
             this.SuspendLayout();
             // 
             // lstOutput
@@ -325,11 +330,51 @@
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Search";
             // 
+            // btnFetch
+            // 
+            this.btnFetch.Location = new System.Drawing.Point(6, 19);
+            this.btnFetch.Name = "btnFetch";
+            this.btnFetch.Size = new System.Drawing.Size(75, 23);
+            this.btnFetch.TabIndex = 26;
+            this.btnFetch.Text = "Fetch";
+            this.btnFetch.UseVisualStyleBackColor = true;
+            this.btnFetch.Click += new System.EventHandler(this.btnFetch_Click);
+            // 
+            // btnPush
+            // 
+            this.btnPush.Location = new System.Drawing.Point(87, 19);
+            this.btnPush.Name = "btnPush";
+            this.btnPush.Size = new System.Drawing.Size(75, 23);
+            this.btnPush.TabIndex = 27;
+            this.btnPush.Text = "Push";
+            this.btnPush.UseVisualStyleBackColor = true;
+            this.btnPush.Click += new System.EventHandler(this.btnPush_Click);
+            // 
+            // groupBox3
+            // 
+            this.groupBox3.Controls.Add(this.btnPush);
+            this.groupBox3.Controls.Add(this.btnFetch);
+            this.groupBox3.Location = new System.Drawing.Point(258, 409);
+            this.groupBox3.Name = "groupBox3";
+            this.groupBox3.Size = new System.Drawing.Size(181, 71);
+            this.groupBox3.TabIndex = 28;
+            this.groupBox3.TabStop = false;
+            this.groupBox3.Text = "Search";
+            // 
+            // progressBar
+            // 
+            this.progressBar.Location = new System.Drawing.Point(399, 492);
+            this.progressBar.Name = "progressBar";
+            this.progressBar.Size = new System.Drawing.Size(100, 23);
+            this.progressBar.TabIndex = 28;
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(507, 415);
+            this.ClientSize = new System.Drawing.Size(511, 527);
+            this.Controls.Add(this.progressBar);
+            this.Controls.Add(this.groupBox3);
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.label7);
             this.Controls.Add(this.txtLName);
@@ -358,6 +403,7 @@
             this.groupBox1.PerformLayout();
             this.groupBox2.ResumeLayout(false);
             this.groupBox2.PerformLayout();
+            this.groupBox3.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -393,6 +439,10 @@
         private System.Windows.Forms.RadioButton radFName;
         private System.Windows.Forms.RadioButton radLName;
         private System.Windows.Forms.GroupBox groupBox2;
+        private System.Windows.Forms.Button btnFetch;
+        private System.Windows.Forms.Button btnPush;
+        private System.Windows.Forms.GroupBox groupBox3;
+        private System.Windows.Forms.ProgressBar progressBar;
     }
 }
 
