@@ -370,10 +370,11 @@ namespace Group_30___CNIT_155_Group_Project
 
         private void btnPush_Click(object sender, EventArgs e)
         {
-            if (mIndex <= 0)
-            {
-                DisplayMessage("No contacts currently exist locally");
-            }
+            //if (mIndex <= 0)
+            //{
+            //    DisplayMessage("No contacts currently exist locally");
+            //    return;
+            //}
 
             lblProgess.Text = "Preparing for upload...";
             gitAdd();
