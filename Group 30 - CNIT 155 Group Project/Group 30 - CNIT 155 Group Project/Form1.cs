@@ -376,18 +376,23 @@ namespace Group_30___CNIT_155_Group_Project
             //    return;
             //}
 
+            progressBar.Value = 0;
             lblProgess.Text = "Preparing for upload...";
             lblProgess.Location = new Point(242, 494);
             lblProgess.Refresh();
+            progressBar.Value = 25;
             gitAdd();
             lblProgess.Text = "Commiting changes...";
             lblProgess.Refresh();
+            progressBar.Value = 50;
             gitCommit();
             lblProgess.Text = "Uploading to GitHub...";
             lblProgess.Refresh();
+            progressBar.Value = 75;
             gitPush();
             lblProgess.Location = new Point(346, 494);
             lblProgess.Text = "Done!";
+            progressBar.Value = 100;
         }
 
         private void btnFetch_Click(object sender, EventArgs e)
