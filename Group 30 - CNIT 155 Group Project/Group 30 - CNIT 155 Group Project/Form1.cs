@@ -377,7 +377,7 @@ namespace Group_30___CNIT_155_Group_Project
             //}
 
             lblProgess.Text = "Preparing for upload...";
-            Thread.Sleep(100);
+            Thread.Sleep(1000);
             gitAdd();
             lblProgess.Text = "Commiting changes...";
             Thread.Sleep(100);
