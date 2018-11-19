@@ -58,12 +58,12 @@
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.btnFetch = new System.Windows.Forms.Button();
             this.btnPush = new System.Windows.Forms.Button();
-            this.groupBox3 = new System.Windows.Forms.GroupBox();
+            this.gboGitHubOptions = new System.Windows.Forms.GroupBox();
             this.progressBar = new System.Windows.Forms.ProgressBar();
             this.lblProgess = new System.Windows.Forms.Label();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
-            this.groupBox3.SuspendLayout();
+            this.gboGitHubOptions.SuspendLayout();
             this.SuspendLayout();
             // 
             // lstOutput
@@ -351,16 +351,16 @@
             this.btnPush.UseVisualStyleBackColor = true;
             this.btnPush.Click += new System.EventHandler(this.btnPush_Click);
             // 
-            // groupBox3
+            // gboGitHubOptions
             // 
-            this.groupBox3.Controls.Add(this.btnPush);
-            this.groupBox3.Controls.Add(this.btnFetch);
-            this.groupBox3.Location = new System.Drawing.Point(258, 409);
-            this.groupBox3.Name = "groupBox3";
-            this.groupBox3.Size = new System.Drawing.Size(181, 71);
-            this.groupBox3.TabIndex = 28;
-            this.groupBox3.TabStop = false;
-            this.groupBox3.Text = "Search";
+            this.gboGitHubOptions.Controls.Add(this.btnPush);
+            this.gboGitHubOptions.Controls.Add(this.btnFetch);
+            this.gboGitHubOptions.Location = new System.Drawing.Point(258, 409);
+            this.gboGitHubOptions.Name = "gboGitHubOptions";
+            this.gboGitHubOptions.Size = new System.Drawing.Size(170, 54);
+            this.gboGitHubOptions.TabIndex = 28;
+            this.gboGitHubOptions.TabStop = false;
+            this.gboGitHubOptions.Text = "GitHub Options:";
             // 
             // progressBar
             // 
@@ -385,7 +385,7 @@
             this.ClientSize = new System.Drawing.Size(511, 527);
             this.Controls.Add(this.lblProgess);
             this.Controls.Add(this.progressBar);
-            this.Controls.Add(this.groupBox3);
+            this.Controls.Add(this.gboGitHubOptions);
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.label7);
             this.Controls.Add(this.txtLName);
@@ -414,7 +414,7 @@
             this.groupBox1.PerformLayout();
             this.groupBox2.ResumeLayout(false);
             this.groupBox2.PerformLayout();
-            this.groupBox3.ResumeLayout(false);
+            this.gboGitHubOptions.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -452,7 +452,7 @@
         private System.Windows.Forms.GroupBox groupBox2;
         private System.Windows.Forms.Button btnFetch;
         private System.Windows.Forms.Button btnPush;
-        private System.Windows.Forms.GroupBox groupBox3;
+        private System.Windows.Forms.GroupBox gboGitHubOptions;
         private System.Windows.Forms.ProgressBar progressBar;
         private System.Windows.Forms.Label lblProgess;
     }
