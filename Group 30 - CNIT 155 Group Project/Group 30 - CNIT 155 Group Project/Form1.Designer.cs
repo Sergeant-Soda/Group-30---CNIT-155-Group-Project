@@ -373,7 +373,7 @@
             // 
             this.lblProgess.AutoSize = true;
             this.lblProgess.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F);
-            this.lblProgess.Location = new System.Drawing.Point(279, 494);
+            this.lblProgess.Location = new System.Drawing.Point(242, 494);
             this.lblProgess.Name = "lblProgess";
             this.lblProgess.Size = new System.Drawing.Size(0, 18);
             this.lblProgess.TabIndex = 28;

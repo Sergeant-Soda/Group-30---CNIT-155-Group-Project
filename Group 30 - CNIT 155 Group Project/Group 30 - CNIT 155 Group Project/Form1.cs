@@ -377,6 +377,7 @@ namespace Group_30___CNIT_155_Group_Project
             //}
 
             lblProgess.Text = "Preparing for upload...";
+            lblProgess.Location = new Point(242, 494);
             lblProgess.Refresh();
             gitAdd();
             lblProgess.Text = "Commiting changes...";
@@ -385,6 +386,7 @@ namespace Group_30___CNIT_155_Group_Project
             lblProgess.Text = "Uploading to GitHub...";
             lblProgess.Refresh();
             gitPush();
+            lblProgess.Location = new Point(346, 494);
             lblProgess.Text = "Done!";
         }
 
