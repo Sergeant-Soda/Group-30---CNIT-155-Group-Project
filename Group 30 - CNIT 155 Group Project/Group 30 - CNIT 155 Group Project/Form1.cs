@@ -370,18 +370,22 @@ namespace Group_30___CNIT_155_Group_Project
 
         private void btnPush_Click(object sender, EventArgs e)
         {
-            if (mIndex <= 0)
-            {
-                DisplayMessage("No contacts currently exist locally");
-                return;
-            }
+            Thread add = new Thread(gitAdd);
+            Thread commit = new Thread(gitCommit);
+            Thread push = new Thread(gitPush);
+
+            //if (mIndex <= 0)
+            //{
+            //    DisplayMessage("No contacts currently exist locally");
+            //    return;
+            //}
 
             lblProgess.Text = "Preparing for upload...";
-            gitAdd();
+            add.Start();
             lblProgess.Text = "Commiting changes...";
-            gitCommit();
+            commit.Start();
             lblProgess.Text = "Uploading to GitHub...";
-            gitPush();
+            push.Start();
             lblProgess.Text = "Done!";
         }
 
