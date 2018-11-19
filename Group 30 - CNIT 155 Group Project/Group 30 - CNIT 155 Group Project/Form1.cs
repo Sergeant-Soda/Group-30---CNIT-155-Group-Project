@@ -19,7 +19,8 @@ namespace Group_30___CNIT_155_Group_Project
         }
 
         private const int cSize = 100;
-        private string[] mName = new string[cSize];
+        private string[] mFName = new string[cSize];
+        private string[] mLName = new string[cSize];
         private string[] mPPhone = new string[cSize];
         private string[] mWPhone = new string[cSize];
         private string[] mEMail = new string[cSize];
@@ -28,33 +29,341 @@ namespace Group_30___CNIT_155_Group_Project
 
         private void btnEnter_Click(object sender, EventArgs e)
         {
-
+            if (ValidateInput() == false)
+            {
+                return;
+            }
+            string FName;
+            string LName;
+            string PPhone;
+            string WPhone;
+            string EMail;
+            string Affiliation;
+            if (txtPPhone.Text == "")
+            {
+                PPhone = "None";
+            }
+            else
+            {
+                PPhone = txtPPhone.Text;
+            }
+            if (txtWPhone.Text == "")
+            {
+                WPhone = "None";
+            }
+            else
+            {
+                WPhone = txtWPhone.Text;
+            }
+            if (txtEMail.Text == "")
+            {
+                EMail = "None";
+            }
+            else
+            {
+                EMail = txtEMail.Text;
+            }
+            Affiliation = CheckAffiliation();
+            FName = txtFName.Text;
+            LName = txtLName.Text;
+            mFName[mIndex] = FName;
+            mLName[mIndex] = LName;
+            mPPhone[mIndex] = PPhone;
+            mWPhone[mIndex] = WPhone;
+            mEMail[mIndex] = EMail;
+            mAffiliation[mIndex] = Affiliation;
+            mIndex++;
+            if (mIndex == cSize)
+            {
+                DisplayMessage("The address book is full");
+                btnEnter.Enabled = false;
+            }
+            ClearInputs();
         }
 
         private void btnDisplay_Click(object sender, EventArgs e)
         {
-
+            if (mIndex == 0)
+            {
+                DisplayMessage("No data has been entered");
+                return;
+            }
+            lstOutput.Items.Clear();
+            lstOutput.Items.Add("Name".PadRight(20) + "Affiliatio ");
+            lstOutput.Items.Add("//////////////////////////////");
+            int ctr;
+            for (ctr = 0; ctr < mIndex; ctr++)
+            {
+                if (mAffiliation[ctr] == "Family")
+                {
+                    lstOutput.Items.Add(mFName[ctr] + mLName[ctr].PadRight(20) + mAffiliation[ctr]);
+                }
+            }
+            for (ctr = 0; ctr < mIndex; ctr++)
+            {
+                if (mAffiliation[ctr] == "Friend")
+                {
+                    lstOutput.Items.Add(mFName[ctr] + mLName[ctr].PadRight(20) + mAffiliation[ctr]);
+                }
+            }
+            for (ctr = 0; ctr < mIndex; ctr++)
+            {
+                if (mAffiliation[ctr] == "Work")
+                {
+                    lstOutput.Items.Add(mFName[ctr] + mLName[ctr].PadRight(20) + mAffiliation[ctr]);
+                }
+            }
+            for (ctr = 0; ctr < mIndex; ctr++)
+            {
+                if (mAffiliation[ctr] == "Other")
+                {
+                    lstOutput.Items.Add(mFName[ctr] + mLName[ctr].PadRight(20) + mAffiliation[ctr]);
+                }
+            }
         }
 
         private void btnClear_Click(object sender, EventArgs e)
         {
-            txtName.Text = "";
-            txtPPhone.Text = "";
-            txtWPhone.Text = "";
-            txtEMail.Text = "";
-
-            radFamily.Checked = false;
-            radFriend.Checked = false;
-            radWork.Checked = false;
-            radOther.Checked = false;
-            lstOutput.Items.Clear();
-
-            txtName.Focus();
+            ClearInputs();
         }
 
         private void btnExit_Click(object sender, EventArgs e)
         {
             Close();
+        }
+
+        private void DisplayMessage(string message)
+        {
+            MessageBox.Show(message, Text, MessageBoxButtons.OK, MessageBoxIcon.Information);
+        }
+
+        private bool ValidateInput()
+        {
+            if (txtFName.Text == "")
+            {
+                DisplayMessage("Enter a first name.");
+                txtFName.Focus();
+                return false;
+            }
+            if (txtLName.Text == "")
+            {
+                DisplayMessage("Enter a last name.");
+                txtLName.Focus();
+                return false;
+            }
+            if (radFamily.Checked == false && radFriend.Checked == false && radWork.Checked == false && radOther.Checked == false)
+            {
+                DisplayMessage("Select an affiliation");
+                return false;
+            }
+            return true;
+        }
+
+        private string CheckAffiliation()
+        {
+            string Affiliation;
+            if (radFamily.Checked == true)
+            {
+                Affiliation = "Family";
+            }
+            else if (radFriend.Checked == true)
+            {
+                Affiliation = "Friend";
+            }
+            else if (radWork.Checked == true)
+            {
+                Affiliation = "Work";
+            }
+            else
+            {
+                Affiliation = "Other";
+            }
+            return Affiliation;
+        }
+
+        private void ClearInputs()
+        {
+            txtFName.Text = "";
+            txtLName.Text = "";
+            txtPPhone.Text = "";
+            txtWPhone.Text = "";
+            txtEMail.Text = "";
+            txtSearch.Text = "";
+
+            radFamily.Checked = false;
+            radFriend.Checked = false;
+            radWork.Checked = false;
+            radOther.Checked = false;
+            radFName.Checked = false;
+            radLName.Checked = false;
+            lstOutput.Items.Clear();
+
+            txtFName.Focus();
+        }
+
+        private void btnFilter_Click(object sender, EventArgs e)
+        {
+            if (mIndex == 0)
+            {
+                DisplayMessage("No data has been entered");
+                return;
+            }
+            lstOutput.Items.Clear();
+            lstOutput.Items.Add("Name".PadRight(20) + "Affiliation");
+            lstOutput.Items.Add("//////////////////////////////");
+            int ctr;
+            if (radFamily.Checked == false && radFriend.Checked == false && radWork.Checked == false && radOther.Checked == false)
+            {
+                DisplayMessage("Select an affiliation");
+                return;
+            }
+            if (radFamily.Checked == true)
+            {
+                for (ctr = 0; ctr < mIndex; ctr++)
+                {
+                    if (mAffiliation[ctr] == "Family")
+                    {
+                        lstOutput.Items.Add(mFName[ctr] + "" + mLName[ctr].PadRight(20) + mAffiliation[ctr]);
+                    }
+                    else
+                    {
+                        lstOutput.Items.Add("No contacts with 'Family' affiliation");
+                    }
+                }
+            }
+            else if (radFriend.Checked == true)
+            {
+                for (ctr = 0; ctr < mIndex; ctr++)
+                {
+                    if (mAffiliation[ctr] == "Friend")
+                    {
+                        lstOutput.Items.Add(mFName[ctr] + "" + mLName[ctr].PadRight(20) + mAffiliation[ctr]);
+                    }
+                    else
+                    {
+                        lstOutput.Items.Add("No contacts with 'Family' affiliation");
+                    }
+                }
+            }
+            else if (radWork.Checked == true)
+            {
+                for (ctr = 0; ctr < mIndex; ctr++)
+                {
+                    if (mAffiliation[ctr] == "Work")
+                    {
+                        lstOutput.Items.Add(mFName[ctr] + "" + mLName[ctr].PadRight(20) + mAffiliation[ctr]);
+                    }
+                    else
+                    {
+                        lstOutput.Items.Add("No contacts with 'Family' affiliation");
+                    }
+                }
+            }
+            else
+            {
+                for (ctr = 0; ctr < mIndex; ctr++)
+                {
+                    if (mAffiliation[ctr] == "Other")
+                    {
+                        lstOutput.Items.Add(mFName[ctr] + "" + mLName[ctr].PadRight(20) + mAffiliation[ctr]);
+                    }
+                    else
+                    {
+                        lstOutput.Items.Add("No contacts with 'Family' affiliation");
+                    }
+                }
+            }
+        }
+
+        private void btnSearch_Click(object sender, EventArgs e)
+        {
+            if (mIndex == 0)
+            {
+                DisplayMessage("No data has been entered");
+                return;
+            }
+            if (radFamily.Checked == false && radFriend.Checked == false && radWork.Checked == false && radOther.Checked == false)
+            {
+                DisplayMessage("Select an affiliation");
+                return;
+            }
+            if (txtSearch.Text == "")
+            {
+                DisplayMessage("Enter a name into the search");
+            }
+            string UniqueName;
+            bool flag = false;
+            int ctr;
+            if (radFName.Checked == true)
+            {
+                UniqueName = txtSearch.Text.ToLower();
+                for (ctr = 0; ctr < mIndex; ctr++)
+                {
+                    if (mFName[ctr].ToLower() == UniqueName)
+                    {
+                        lstOutput.Items.Clear();
+                        lstOutput.Items.Add("Discovered First Name: " + mFName[ctr]);
+                        lstOutput.Items.Add("Name".PadRight(20) + "Affiliation");
+                        lstOutput.Items.Add("//////////////////////////////");
+                        lstOutput.Items.Add(mFName[ctr] + "" + mLName[ctr].PadRight(20) + mAffiliation[ctr]);
+
+                        flag = true;
+                        break;
+                    }
+                }
+                if (flag == false)
+                {
+                    DisplayMessage("Could not find " + UniqueName + " in the address book");
+                }
+            }
+            if (radLName.Checked == true)
+            {
+                UniqueName = txtSearch.Text.ToLower();
+                for (ctr = 0; ctr < mIndex; ctr++)
+                {
+                    if (mLName[ctr].ToLower() == UniqueName)
+                    {
+                        lstOutput.Items.Clear();
+                        lstOutput.Items.Add("Discovered Last Name: " + mLName[ctr]);
+                        lstOutput.Items.Add("Name".PadRight(20) + "Affiliation");
+                        lstOutput.Items.Add("//////////////////////////////");
+                        lstOutput.Items.Add(mFName[ctr] + "" + mLName[ctr].PadRight(20) + mAffiliation[ctr]);
+
+                        flag = true;
+                        break;
+                    }
+                }
+                if (flag == false)
+                {
+                    DisplayMessage("Could not find " + UniqueName + " in the address book");
+                }
+            }
+        }
+
+        private void lstOutput_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            int Index = lstOutput.SelectedIndex - 2;
+            txtFName.Text = mFName[Index];
+            txtLName.Text = mLName[Index];
+            txtPPhone.Text = mPPhone[Index];
+            txtWPhone.Text = mWPhone[Index];
+            txtEMail.Text = mEMail[Index];
+            if (mAffiliation[Index] == "Family")
+            {
+                radFamily.Checked = true;
+            }
+            if (mAffiliation[Index] == "Friend")
+            {
+                radFamily.Checked = true;
+            }
+            if (mAffiliation[Index] == "Work")
+            {
+                radFamily.Checked = true;
+            }
+            if (mAffiliation[Index] == "Other")
+            {
+                radFamily.Checked = true;
+            }
         }
     }
 }
