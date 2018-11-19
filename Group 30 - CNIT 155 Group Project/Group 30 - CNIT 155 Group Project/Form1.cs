@@ -388,9 +388,7 @@ namespace Group_30___CNIT_155_Group_Project
                     wc.DownloadProgressChanged += wc_DownloadProgressChanged;
                     lblProgess.Location = new Point(279, 494);
                     wc.DownloadFileAsync(
-                        // Param1 = Link of file
                         new System.Uri("https://raw.githubusercontent.com/Sergeant-Soda/Group-30---CNIT-155-Group-Project/master/Group%2030%20-%20CNIT%20155%20Group%20Project/Group%2030%20-%20CNIT%20155%20Group%20Project/bin/Debug/Address%20Book.txt"),
-                        // Param2 = Path to save
                         "Address Book.txt"
                     );
                 }
