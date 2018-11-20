@@ -158,6 +158,7 @@ namespace Group_30___CNIT_155_Group_Project
                 DisplayMessage("Select an affiliation");
                 return false;
             }
+            
             return true;
         }
 
@@ -219,13 +220,14 @@ namespace Group_30___CNIT_155_Group_Project
                 DisplayMessage("Select an affiliation");
                 return;
             }
+            
             if (radFamily.Checked == true)
             {
                 for (ctr = 0; ctr < mIndex; ctr++)
                 {
                     if (mAffiliation[ctr] == "Family")
                     {
-                        lstOutput.Items.Add(mFName[ctr] + "" + mLName[ctr].PadRight(20) + mAffiliation[ctr]);
+                        lstOutput.Items.Add(mFName[ctr]+ " " + mLName[ctr].PadRight(20) + mAffiliation[ctr]);
                     }
                     else
                     {
@@ -239,7 +241,7 @@ namespace Group_30___CNIT_155_Group_Project
                 {
                     if (mAffiliation[ctr] == "Friend")
                     {
-                        lstOutput.Items.Add(mFName[ctr] + "" + mLName[ctr].PadRight(20) + mAffiliation[ctr]);
+                        lstOutput.Items.Add(mFName[ctr] + " " + mLName[ctr].PadRight(20) + mAffiliation[ctr]);
                     }
                     else
                     {
@@ -253,7 +255,7 @@ namespace Group_30___CNIT_155_Group_Project
                 {
                     if (mAffiliation[ctr] == "Work")
                     {
-                        lstOutput.Items.Add(mFName[ctr] + "" + mLName[ctr].PadRight(20) + mAffiliation[ctr]);
+                        lstOutput.Items.Add(mFName[ctr] + " " + mLName[ctr].PadRight(20) + mAffiliation[ctr]);
                     }
                     else
                     {
@@ -267,7 +269,7 @@ namespace Group_30___CNIT_155_Group_Project
                 {
                     if (mAffiliation[ctr] == "Other")
                     {
-                        lstOutput.Items.Add(mFName[ctr] + "" + mLName[ctr].PadRight(20) + mAffiliation[ctr]);
+                        lstOutput.Items.Add(mFName[ctr] + " " + mLName[ctr].PadRight(20) + mAffiliation[ctr]);
                     }
                     else
                     {
@@ -287,6 +289,11 @@ namespace Group_30___CNIT_155_Group_Project
             if (radFamily.Checked == false && radFriend.Checked == false && radWork.Checked == false && radOther.Checked == false)
             {
                 DisplayMessage("Select an affiliation");
+                return;
+            }
+            if (radFName.Checked == false && radLName.Checked == false)
+            {
+                DisplayMessage("Select a search type");
                 return;
             }
             if (txtSearch.Text == "")
