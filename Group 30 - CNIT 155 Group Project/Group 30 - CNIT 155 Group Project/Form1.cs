@@ -488,6 +488,45 @@ namespace Group_30___CNIT_155_Group_Project
                 btnPush.Enabled = false;
                 btnFetch.Enabled = false;
             }
+            if (File.Exists("Address Book.txt") == false)
+            {
+                DisplayMessage("No such Filename");
+                return;
+            }
+            StreamReader SR = null;
+            SR = new StreamReader("Address Book.txt");
+            try
+            {
+                string line;
+                string[] parts;
+
+
+                while (SR.Peek() != -1)
+                {
+                    line = SR.ReadLine();
+                    parts = line.Split('\t');
+                    mFName[mIndex] = parts[0];
+                    mLName[mIndex] = (parts[1]);
+                    mPPhone[mIndex] = parts[2];
+                    mWPhone[mIndex] = parts[3];
+                    mEMail[mIndex] = parts[4];
+                    mAffiliation[mIndex] = parts[5];
+                    mIndex++;
+                }
+
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+            finally
+            {
+                if (SR != null)
+                    SR.Close();
+
+            }
+
+
         }
 
         private void Form1_FormClosing(object sender, FormClosingEventArgs e)
@@ -500,7 +539,7 @@ namespace Group_30___CNIT_155_Group_Project
             else
             {
                 StreamWriter SW = null;
-                SW = new StreamWriter("Worker.txt");
+                SW = new StreamWriter("Address Book.txt");
                 try
                 {
                     for (int count = 0; count < mIndex; count++)
