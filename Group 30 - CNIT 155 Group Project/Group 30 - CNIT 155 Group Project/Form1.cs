@@ -377,11 +377,11 @@ namespace Group_30___CNIT_155_Group_Project
 
         private void btnPush_Click(object sender, EventArgs e)
         {
-            //if (mIndex <= 0)
-            //{
-            //    DisplayMessage("No contacts currently exist locally");
-            //    return;
-            //}
+            if (mIndex <= 0)
+            {
+                DisplayMessage("No contacts currently exist locally");
+                return;
+            }
             if (!File.Exists("Address Book.txt"))
             {
                 DisplayMessage("No local file exists yet. Please create one and add some entries.");
