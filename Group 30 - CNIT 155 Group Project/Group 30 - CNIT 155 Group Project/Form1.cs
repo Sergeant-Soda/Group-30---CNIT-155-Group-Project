@@ -405,6 +405,10 @@ namespace Group_30___CNIT_155_Group_Project
             lblProgess.Location = new Point(346, 494);
             lblProgess.Text = "Done!";
             progressBar.Value = 100;
+
+            Thread.Sleep(3000);
+            lblProgess.Text = "";
+            progressBar.Value = 0;
         }
 
         private void btnFetch_Click(object sender, EventArgs e)
