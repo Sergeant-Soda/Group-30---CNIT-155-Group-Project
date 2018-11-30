@@ -489,5 +489,36 @@ namespace Group_30___CNIT_155_Group_Project
                 btnFetch.Enabled = false;
             }
         }
+
+        private void Form1_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            if (MessageBox.Show("Do you want to end the program? ", Text, MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.No)
+            {
+                e.Cancel = true;
+                return;
+            }
+            else
+            {
+                StreamWriter SW = null;
+                SW = new StreamWriter("Worker.txt");
+                try
+                {
+                    for (int count = 0; count < mIndex; count++)
+                    {
+                        SW.WriteLine( mFName[count] + "\t" + mLName[count] + "\t" + mPPhone[count]+"\t"+mWPhone[count]+"\t"+mEMail[count]+"\t"+mAffiliation[count]);
+                    }
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show(ex.Message);
+                }
+                finally
+                {
+                    if (SW != null)
+                        SW.Close();
+
+                }
+            }
+        }
     }
 }
