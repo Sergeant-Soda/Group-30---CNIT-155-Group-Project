@@ -364,24 +364,26 @@
             // 
             // btnFetch
             // 
+            this.btnFetch.BackColor = System.Drawing.Color.IndianRed;
             this.btnFetch.Location = new System.Drawing.Point(9, 29);
             this.btnFetch.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.btnFetch.Name = "btnFetch";
             this.btnFetch.Size = new System.Drawing.Size(112, 35);
             this.btnFetch.TabIndex = 26;
             this.btnFetch.Text = "Fetch";
-            this.btnFetch.UseVisualStyleBackColor = true;
+            this.btnFetch.UseVisualStyleBackColor = false;
             this.btnFetch.Click += new System.EventHandler(this.btnFetch_Click);
             // 
             // btnPush
             // 
+            this.btnPush.BackColor = System.Drawing.SystemColors.GradientActiveCaption;
             this.btnPush.Location = new System.Drawing.Point(130, 29);
             this.btnPush.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.btnPush.Name = "btnPush";
             this.btnPush.Size = new System.Drawing.Size(112, 35);
             this.btnPush.TabIndex = 27;
             this.btnPush.Text = "Push";
-            this.btnPush.UseVisualStyleBackColor = true;
+            this.btnPush.UseVisualStyleBackColor = false;
             this.btnPush.Click += new System.EventHandler(this.btnPush_Click);
             // 
             // gboGitHubOptions
@@ -419,6 +421,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.Color.DarkGray;
             this.ClientSize = new System.Drawing.Size(766, 811);
             this.Controls.Add(this.lblProgess);
             this.Controls.Add(this.progressBar);
