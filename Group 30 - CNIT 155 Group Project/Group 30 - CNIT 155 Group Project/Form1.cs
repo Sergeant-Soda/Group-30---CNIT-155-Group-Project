@@ -91,7 +91,7 @@ namespace Group_30___CNIT_155_Group_Project
                 return;
             }
             lstOutput.Items.Clear();
-            lstOutput.Items.Add("Name".PadRight(20) + "Affiliatio ");
+            lstOutput.Items.Add("Name".PadRight(20) + "Affiliation ");
             lstOutput.Items.Add("//////////////////////////////");
             int ctr;
             for (ctr = 0; ctr < mIndex; ctr++)
