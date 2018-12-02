@@ -10,7 +10,20 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Threading;
 using System.IO;
-
+/****************************************
+ * Michael Kelly
+ * Jarrett Wesen
+ * Edward Chang
+ * Address book program allows user to input a person's information such as First last name, Work home phone, 
+ * email, affliction. Helps sort the first names alphabetically. Allows user to search by either first or last
+ * name. User has an option to upload the address book txt file to github and pull it from github.
+ * 
+ * Special Feature:
+ * Github push/pull feature requires user to install git-cmd.exe in order to function.
+ * Limitations:
+ * User must have admin rights to install user to install git-cmd.exe in order to function.
+ * 
+ *//////////////////////////////////////// 
 namespace Group_30___CNIT_155_Group_Project
 {
     public partial class Form1 : Form
